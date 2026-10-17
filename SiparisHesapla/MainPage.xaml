@@ -1,0 +1,473 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="SiparisHesapla.MainPage"
+    Shell.NavBarIsVisible="False"
+    BackgroundColor="#F6F1EA">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="18">
+
+            <!-- ========================= -->
+            <!-- BAŞLIK                    -->
+            <!-- ========================= -->
+
+            <Border
+                BackgroundColor="#1F3A34"
+                StrokeThickness="0"
+                Padding="24">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="24" />
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="6">
+
+                    <Label
+                        Text="YAZILIM KAFE"
+                        FontSize="30"
+                        FontAttributes="Bold"
+                        TextColor="White"
+                        HorizontalTextAlignment="Center" />
+
+                    <Label
+                        Text="Akıllı Sipariş Asistanı"
+                        FontSize="16"
+                        FontAttributes="Bold"
+                        TextColor="#E9DCCF"
+                        HorizontalTextAlignment="Center" />
+
+                    <Label
+                        Text="Kahveni seç, siparişini kişiselleştir."
+                        FontSize="13"
+                        TextColor="#C9D6D2"
+                        HorizontalTextAlignment="Center" />
+
+                </VerticalStackLayout>
+
+            </Border>
+
+
+            <!-- ========================= -->
+            <!-- MÜŞTERİ BİLGİSİ           -->
+            <!-- ========================= -->
+
+            <Border
+                BackgroundColor="#FFFCF8"
+                Stroke="#E6D8C9"
+                StrokeThickness="1"
+                Padding="20">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20" />
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="14">
+
+                    <Label
+                        Text="Müşteri Bilgisi"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        TextColor="#2B2118" />
+
+                    <Entry
+                        x:Name="MusteriAdiEntry"
+                        Placeholder="Müşteri adını giriniz"
+                        TextColor="#2B2118"
+                        PlaceholderColor="#A3988D" />
+
+
+                    <!-- Sipariş türü -->
+
+                    <Label
+                        Text="Sipariş Türü"
+                        FontSize="16"
+                        FontAttributes="Bold"
+                        TextColor="#2B2118" />
+
+                    <HorizontalStackLayout
+                        Spacing="8"
+                        HorizontalOptions="Center">
+
+                        <Button
+                            x:Name="MasadaButton"
+                            Text="Masada"
+                            BackgroundColor="#C77B4A"
+                            TextColor="White"
+                            CornerRadius="14"
+                            Clicked="MasadaButton_Clicked" />
+
+                        <Button
+                            x:Name="GelAlButton"
+                            Text="Gel-Al"
+                            BackgroundColor="#C77B4A"
+                            TextColor="White"
+                            CornerRadius="14"
+                            Clicked="GelAlButton_Clicked" />
+
+                        <Button
+                            x:Name="PaketButton"
+                            Text="Paket"
+                            BackgroundColor="#C77B4A"
+                            TextColor="White"
+                            CornerRadius="14"
+                            Clicked="PaketButton_Clicked" />
+
+                    </HorizontalStackLayout>
+
+                    <Label
+                        x:Name="SiparisTuruLabel"
+                        Text="Henüz sipariş türü seçilmedi."
+                        FontSize="13"
+                        TextColor="#7A6F66"
+                        HorizontalTextAlignment="Center" />
+
+                </VerticalStackLayout>
+
+            </Border>
+
+
+            <!-- ========================= -->
+            <!-- KAHVE SEÇİMİ              -->
+            <!-- ========================= -->
+
+            <Border
+                BackgroundColor="#FFFCF8"
+                Stroke="#E6D8C9"
+                StrokeThickness="1"
+                Padding="20">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20" />
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="14">
+
+                    <Label
+                        Text="Kahveni Seç"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        TextColor="#2B2118" />
+
+                    <HorizontalStackLayout
+                        Spacing="8"
+                        HorizontalOptions="Center">
+
+                        <Button
+                            x:Name="LatteButton"
+                            Text="Latte"
+                            BackgroundColor="#C77B4A"
+                            TextColor="White"
+                            CornerRadius="14"
+                            Clicked="LatteButton_Clicked" />
+
+                        <Button
+                            x:Name="AmericanoButton"
+                            Text="Americano"
+                            BackgroundColor="#C77B4A"
+                            TextColor="White"
+                            CornerRadius="14"
+                            Clicked="AmericanoButton_Clicked" />
+
+                        <Button
+                            x:Name="MochaButton"
+                            Text="Mocha"
+                            BackgroundColor="#C77B4A"
+                            TextColor="White"
+                            CornerRadius="14"
+                            Clicked="MochaButton_Clicked" />
+
+                    </HorizontalStackLayout>
+
+                    <Label
+                        x:Name="SecilenUrunLabel"
+                        Text="Henüz bir kahve seçilmedi."
+                        FontSize="14"
+                        TextColor="#7A6F66"
+                        HorizontalTextAlignment="Center" />
+
+                </VerticalStackLayout>
+
+            </Border>
+
+
+            <!-- ========================= -->
+            <!-- ÜRÜN DETAYLARI            -->
+            <!-- ========================= -->
+
+            <Border
+                BackgroundColor="#FFFCF8"
+                Stroke="#E6D8C9"
+                StrokeThickness="1"
+                Padding="20">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20" />
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="14">
+
+                    <Label
+                        Text="Ürün Detayları"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        TextColor="#2B2118" />
+
+                    <Label
+                        Text="Adet"
+                        FontAttributes="Bold"
+                        TextColor="#2B2118" />
+
+                    <Entry
+                        x:Name="AdetEntry"
+                        Text="1"
+                        Placeholder="Adet giriniz"
+                        Keyboard="Numeric"
+                        TextColor="#2B2118" />
+
+
+                    <!-- Stepper -->
+
+                    <Label
+                        Text="Ekstra Shot"
+                        FontAttributes="Bold"
+                        TextColor="#2B2118" />
+
+                    <Border
+                        BackgroundColor="#F2E8DE"
+                        StrokeThickness="0"
+                        Padding="8">
+
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="14" />
+                        </Border.StrokeShape>
+
+                        <Stepper
+                            x:Name="EkstraShotStepper"
+                            Minimum="0"
+                            Maximum="5"
+                            Increment="1"
+                            Value="0"
+                            HorizontalOptions="Center"
+                            ValueChanged="EkstraShotStepper_ValueChanged" />
+
+                    </Border>
+
+                    <Label
+                        x:Name="EkstraShotLabel"
+                        Text="Ekstra Shot: 0"
+                        FontSize="14"
+                        TextColor="#7A6F66"
+                        HorizontalTextAlignment="Center" />
+
+                    <Label
+                        Text="Her ekstra shot +25 TL"
+                        FontSize="12"
+                        TextColor="#A3988D"
+                        HorizontalTextAlignment="Center" />
+
+
+                    <!-- Sepete ekleme -->
+
+                    <Button
+                        x:Name="SepeteEkleButton"
+                        Text="SİPARİŞE EKLE"
+                        FontSize="16"
+                        FontAttributes="Bold"
+                        HeightRequest="52"
+                        CornerRadius="16"
+                        BackgroundColor="#C77B4A"
+                        TextColor="White"
+                        Clicked="SepeteEkleButton_Clicked" />
+
+                </VerticalStackLayout>
+
+            </Border>
+
+
+            <!-- ========================= -->
+            <!-- SEPET                     -->
+            <!-- ========================= -->
+
+            <Border
+                BackgroundColor="#FFFCF8"
+                Stroke="#C77B4A"
+                StrokeThickness="1"
+                Padding="20">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20" />
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="10">
+
+                    <Label
+                        Text="Sipariş Sepeti"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        TextColor="#1F3A34"
+                        HorizontalTextAlignment="Center" />
+
+                    <Label
+                        x:Name="SepetLabel"
+                        Text="Sepetiniz henüz boş."
+                        FontSize="14"
+                        TextColor="#2B2118"
+                        LineHeight="1.3"
+                        HorizontalTextAlignment="Center" />
+
+                </VerticalStackLayout>
+
+            </Border>
+
+
+            <!-- ========================= -->
+            <!-- BAHŞİŞ                    -->
+            <!-- ========================= -->
+
+            <Border
+                BackgroundColor="#FFFCF8"
+                Stroke="#E6D8C9"
+                StrokeThickness="1"
+                Padding="20">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20" />
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="10">
+
+                    <Label
+                        Text="Bahşiş"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        TextColor="#2B2118" />
+
+                    <Label
+                        Text="İsterseniz bahşiş oranını belirleyebilirsiniz."
+                        FontSize="13"
+                        TextColor="#7A6F66" />
+
+                    <Slider
+                        x:Name="BahsisSlider"
+                        Minimum="0"
+                        Maximum="20"
+                        Value="0"
+                        MinimumTrackColor="#1F3A34"
+                        MaximumTrackColor="#D9CFC5"
+                        ThumbColor="#C77B4A"
+                        ValueChanged="BahsisSlider_ValueChanged" />
+
+                    <Label
+                        x:Name="BahsisLabel"
+                        Text="Bahşiş: %0"
+                        FontSize="16"
+                        FontAttributes="Bold"
+                        TextColor="#1F3A34"
+                        HorizontalTextAlignment="Center" />
+
+                </VerticalStackLayout>
+
+            </Border>
+
+
+            <!-- ========================= -->
+            <!-- HESAPLA                   -->
+            <!-- ========================= -->
+
+            <Button
+                x:Name="HesaplaButton"
+                Text="SİPARİŞİ HESAPLA"
+                FontSize="17"
+                FontAttributes="Bold"
+                HeightRequest="58"
+                CornerRadius="18"
+                BackgroundColor="#1F3A34"
+                TextColor="White"
+                Clicked="HesaplaButton_Clicked" />
+
+
+            <!-- ========================= -->
+            <!-- YENİ SİPARİŞ              -->
+            <!-- ========================= -->
+
+            <Button
+                x:Name="YeniSiparisButton"
+                Text="YENİ SİPARİŞ"
+                FontSize="15"
+                FontAttributes="Bold"
+                HeightRequest="50"
+                CornerRadius="18"
+                BackgroundColor="#C77B4A"
+                TextColor="White"
+                Clicked="YeniSiparisButton_Clicked" />
+
+
+            <!-- ========================= -->
+            <!-- SONUÇ                     -->
+            <!-- ========================= -->
+
+            <Border
+                BackgroundColor="#FFFCF8"
+                Stroke="#C77B4A"
+                StrokeThickness="1.5"
+                Padding="22">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20" />
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="12">
+
+                    <Label
+                        Text="Sipariş Özeti"
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        TextColor="#1F3A34"
+                        HorizontalTextAlignment="Center" />
+
+                    <Label
+                        x:Name="SonucLabel"
+                        Text="Siparişiniz henüz hesaplanmadı."
+                        FontSize="15"
+                        TextColor="#2B2118"
+                        LineHeight="1.3"
+                        HorizontalTextAlignment="Center" />
+
+                    <BoxView
+                        HeightRequest="1"
+                        Color="#E6D8C9"
+                        Margin="0,4" />
+
+                    <Label
+                        Text="Ödenecek Toplam"
+                        FontSize="13"
+                        TextColor="#7A6F66"
+                        HorizontalTextAlignment="Center" />
+
+                    <Label
+                        x:Name="ToplamLabel"
+                        Text="0.00 TL"
+                        FontSize="30"
+                        FontAttributes="Bold"
+                        TextColor="#C77B4A"
+                        HorizontalTextAlignment="Center" />
+
+                </VerticalStackLayout>
+
+            </Border>
+
+            <BoxView
+                HeightRequest="10"
+                Color="Transparent" />
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>
